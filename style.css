@@ -1,0 +1,213 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /*Fonte importada do Google Fonts (https://fonts.google.com/specimen/Bebas+Neue?query=bebas#standard-styles) */
+
+@font-face { /*Fonte baixada do site https://www.dafont.com/pt/search.php?q=idroid */
+    font-family: idroid;
+    src: url(fontes/idroid.otf) format('opentype');
+}
+
+:root{ /*Declaração de variáveis*/
+    --cor0: white;    
+    --cor1: #C5EBD6;
+    --cor2: #2FA866;
+    --cor3: #053118;
+    --cor4: black;
+
+    --fontePadrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonteDestaque: 'Bebas Neue', cursive;
+    --fonteAndroid: 'idroid', cursive;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: var(--fontePadrao);
+}
+/*Configuração global para garantir que todos os elementos serão iniciados com margin e padding zerados, textos centralizados e fonte padrão. Os parágrafos por exemplo, já são criados com margin 16px e isso às vezes atrapalha a formatação.*/
+
+p{
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1.5em;
+}
+
+h1,h2{
+    text-align: left;
+    font-family: var(--fonteAndroid);
+}
+
+body{
+    background-color: var(--cor1);
+}
+
+header{
+    color: var(--cor0);
+    background-image: linear-gradient(to bottom, var(--cor2), var(--cor3));
+}
+
+header>h1{
+    padding-top: 20px;
+    font-family: var(--fonteDestaque);
+    font-weight: lighter;
+    font-size: 4em;
+    text-shadow: 2px 2px 5px var(--cor3);
+    text-align: center;
+}
+
+header>p{
+    padding: 20px;
+    text-indent: 0px;
+    text-align: center;
+    text-shadow: 2px 2px 5px var(--cor3);
+    max-width: 500px;
+    margin: auto;
+    font-size: 20px;
+}
+
+header>nav{
+    padding: 10px;
+    text-align: left;
+}
+
+header>nav>a{
+    margin-right: 20px;
+    color: var(--cor0);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+header>nav>a:hover{
+    background-color: var(--cor2);
+    transition-duration: 0.5s;
+}
+
+main{
+    margin: 0px auto;
+    max-width: 800px;
+    min-width: 200px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.400);
+}
+
+.artigo{
+    background-color: var(--cor0);
+    padding: 10px;
+}
+
+.artigo>h1{
+    color: var(--cor3);
+    text-align: left;
+    padding: 10px 0px;
+}
+
+.artigo>h2{
+    color: var(--cor3);
+    text-align: left;
+    margin: 20px 0px;
+    padding: 0px 10px;
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+}
+
+.linkartigo{
+    text-decoration: none;
+    color: var(--cor2);
+    font-weight: bolder;
+}
+
+.linkartigo:hover{
+    color: var(--cor0);
+    background-color: var(--cor2);
+}
+
+.linkartigo::after{
+    content: ' 🔗'; /*Para inserir o ícone de link após o texto do link, basta copiar a imagem da emojipedia e colar aqui entre aspas. Foi incluído um espaço antes do ícone.*/
+}
+
+.artigo>img{
+    padding: 10px 0px;
+}
+
+.imgartigo{
+    max-width: 100%;
+}
+/*Configuração para tornar a imagem responsiva.
+O seletor usado precisa ser da tag img e não da picture, se existir. */
+/*Se for desejado que o quadro da imagem não ultrapasse às medidas definidas para ela no html, utiliza-se "max-width: 100%;". */
+/*Se as dimensões da imagem não forem definidas no html, utiliza-se "width: 100%;". */
+
+.video{
+    background-color: var(--cor3);
+    padding-bottom: 50%; /*Configurar isso na caixa que contiver o vídeo. Tentar várias porcentagens até encontrar a que não deixa faixas pretas ao redor do vídeo.*/
+    position: relative; /*Configurar "relative" na caixa que contiver o vídeo e "absolute" no iframe.*/
+
+    /*Também é possível fazer a responsividade apenas com o parâmetro padding no conteiner (section neste caso) e width ou max-width no iframe, conforme OBS abaixo, mas a apresentação do quadro do vídeo fica com barras pretas.*/
+}
+
+.iframevideo{
+    position: absolute; /*Configurar "absolute" no iframe e "relative" na caixa que contiver o vídeo (section neste caso).*/
+    top: 5%; /*Posição do corner superior esquerdo em relação ao limite superior do conteiner do vídeo.*/
+    left: 5%; /*Posição do corner superior esquerdo em relação ao limite esquerdo do conteiner do vídeo.*/
+    width: 90%; /*Largura do quadro do vídeo em relação à largura do conteiner do vídeo.*/
+    height: 90%; /*Altura do quadro do vídeo em relação à altura do conteiner do vídeo.*/
+
+    /*Também é possível fazer a responsividade apenas com o parâmetro width ou max-width, conforme OBS abaixo, mas a apresentação do quadro do vídeo fica com barras pretas.*/
+}   /*OBS:*/
+    /*Configuração para tornar a imagem responsiva. O seletor usado precisa ser da tag iframe. */
+    /*Se for desejado que o quadro do vídeo não ultrapasse às medidas definidas para o vídeo no html, utiliza-se "max-width: 100%;". */
+    /*Se as dimensões do vídeo não forem definidas no html, utiliza-se "width: 100%;".*/
+
+.links{
+    background-color: var(--cor0);
+    padding: 20px;
+}
+
+.divlinks{
+    border-radius: 10px;
+    background-color: var(--cor1);
+}
+
+.divlinks>*{
+    padding: 5px;
+}
+
+#plinks01{
+    background-color: var(--cor2);
+    color: var(--cor0);
+    text-indent: 0%;
+    border-radius: 10px 10px 0 0;
+}
+
+#plinks05{
+    padding: 5px;
+}
+
+.spanlinks{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ullinks{
+    list-style-position: inside; /*Para que os marcadores fiquem dentro da caixa. O padrão é outside.*/
+    list-style-type: '✔️  '; /*Para inserir a check mark nos marcadores, basta copiar a imagem da emojipedia e colar aqui entre aspas. Foram incluídos dois espaços após a check mark.*/
+    columns: 2; /*Para definir o número de colunas em que a lista será exibida.*/
+    width: 100%; /*Para que as colunas sejam distribuídas uniformemente dentro da largura da caixa que a contiver.*/
+}
+
+.ullinks>*{
+    text-align: left;
+    font-weight: bold;
+}
+
+footer{
+    padding: 5px;
+    background-color: var(--cor3);
+    color: var(--cor0);
+    font-size: 0.8em;
+}
+
+footer>p{
+    text-align: center;
+}
